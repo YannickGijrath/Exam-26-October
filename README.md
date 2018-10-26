@@ -2,4 +2,4 @@
 
 Python: https://github.com/YannickGijrath/Exam-26-October/blob/master/Yannick%20Python%20Exam.ipynb
 
-R: 
+R: https://github.com/YannickGijrath/Exam-26-October/blob/master/Yannick%20R%20Exam.Rmd (kon niet knitten)
