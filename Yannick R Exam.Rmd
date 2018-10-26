@@ -1,0 +1,119 @@
+---
+title: "R exam"
+output: html_notebook
+---
+
+# Exam R
+Mark Klik & Misja Mikkers
+
+# Introduction
+
+Before you turn this problem in, make sure everything runs as expected. First, **restart the kernel** (in the menubar, select Kernel$\rightarrow$Restart) and then **run all cells** (in the menubar, select Cell$\rightarrow$Run All).
+
+Make sure you fill in any place that says `YOUR CODE HERE` or "YOUR ANSWER HERE", as well as your name and collaborators below:
+
+```{r}
+NAME = "Yannick Gijrath, 2001202"
+```
+
+Fill in the cell above to provide us with your name and student number, like
+
+NAME = "Adam Smith, #student number#"
+
+where you replace "#student number#" with your ... (very good!)
+
+Unfortunately, you are not allowed to work with "COLLABORATORS" in this exam.
+
+## exam October 26th, 2018
+
+With this R part of the exam you can earn at max. 4 points.
+
+In the first cell of the notebook, give us your name and student number in the way indicated above.
+
+Fill in the notebook (see below for code cells and text cells that you need to fill in).
+
+If you look at the menus above (File, Edit, View etc.), there is one called "Cell". If you click on this, you can change the "Cell Type". Choose "Code" when you are typing python or R code. Choose "Markdown" when you are typing, well, markdown.
+
+When you finish the notebook, make sure that you save it with the output of your code included.
+
+Then put it on github, e.g. by dragging it onto github (see instructions below).
+
+Finally, add a link to your README file with the name of this exam: "Exam R September 7, 2018".
+
+# Packages
+
+You will need the following packages for this exam.
+
+```{r}
+library(tidyverse)
+```
+
+
+# Assignment 1
+
+## Data
+
+Please read in "resit.csv" and check the structure.
+
+If needed change the variables e and x1 into a numeric variable.
+
+Hint: don't forget you cannot change a factor in a numeric variable directly!
+
+
+
+
+
+```{r}
+data1 <- read.csv2("/Users/Yannick/Desktop/Universiteit/Tilburg/Programming/Sourcedata/resit.csv")
+str(data1)
+
+e_ <- as.numeric(as.character(data1$e))
+x1_ <- as.numeric(as.character(data1$x1))
+
+head(data1)
+```
+
+# Data manipulation
+
+We will construct the variable "y". You have to create the variable "y" with the formula:
+
+$$ 10 + 3*x1 + e $$
+
+Show the head of your data
+
+```{r}
+data1 <- transform(data1, y = 10 + 3 * x1_ + e)
+head(data1)
+```
+
+## Regression 
+
+You will now have to run a regression with y as a function of x1. Show the summary statistics.
+
+```{r}
+reg1 <- lm(y ~ x1_, data = data1)
+summary(reg1)
+```
+
+
+## Plot
+
+Now you have to make a scatter plot of the data:
+
+* with x1 on the x-axis
+* y on the y-axis
+* the regression line in green, with confidence interval
+* in a light theme
+
+```{r}
+plot1 <- ggplot(data = data1, aes(x = x1, y = y)) + geom_point(color='black') + geom_smooth(method = "lm", color='green', se = TRUE) + theme_light() 
+plot1                                                                             
+```
+
+
+
+
+
+End of notebook
+
+
